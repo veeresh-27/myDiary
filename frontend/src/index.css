@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.page-row {
+  @apply min-h-screen flex;
+}
+
+.page-col {
+  @apply min-h-screen flex flex-col;
+}
