@@ -2,15 +2,19 @@ import { Menu, Transition } from "@headlessui/react";
 import { Fragment } from "react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 
-export default function Dropdown({ title, options }) {
+export default function Dropdown({ title, options, mode }) {
   return (
-    <div className=" text-right">
+    <div className=" text-right ">
       <Menu as="div" className="relative inline-block text-left">
         <div className="flex justify-center items-center">
           <Menu.Button className="inline-flex w-full justify-center rounded-md px-4 py-2 text-md text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-            {title ? title : "Options"}
+            {title}
             <ChevronDownIcon
-              className="ml-2 -mr-1 h-5 w-5 text-violet-200 self-center"
+              className={
+                mode
+                  ? "ml-2 -mr-1 h-5 w-5 text-gray-800 self-center z-10"
+                  : "ml-2 -mr-1 h-5 w-5 text-white self-center"
+              }
               aria-hidden="true"
             />
           </Menu.Button>
@@ -22,18 +26,17 @@ export default function Dropdown({ title, options }) {
           enterTo="transform opacity-100 scale-100"
           leave="transition ease-in duration-75"
           leaveFrom="transform opacity-100 scale-100"
-          leaveTo="transform opacity-0 scale-95"
-        >
-          <Menu.Items className="absolute right-0 mt-2 w-48 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          leaveTo="transform opacity-0 scale-95">
+          <Menu.Items className="absolute right-0 mt-2 w-48 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none ">
             <div className="px-1 py-1 ">
-              {options?.map(({ name }) => (
+              {options?.map(({ name, method }) => (
                 <Menu.Item>
                   {({ active }) => (
                     <button
                       className={`${
-                        active ? "bg-blue-500 text-white" : "text-gray-900"
+                        active ? "bg-blue-500 text-white" : " text-gray-900"
                       } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                    >
+                      onClick={method ? method : ""}>
                       {name}
                     </button>
                   )}
@@ -46,3 +49,16 @@ export default function Dropdown({ title, options }) {
     </div>
   );
 }
+
+Dropdown.defaultProps = {
+  title: "",
+  options: [
+    {
+      name: "Option1",
+    },
+    {
+      name: "Option2",
+    },
+  ],
+  mode: false,
+};

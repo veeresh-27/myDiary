@@ -7,6 +7,7 @@ import Calendar from "./pages/calendar/index";
 import Login from "./pages/login/index";
 import Landing from "./pages/landing";
 import Register from "./pages/register";
+import SingleNote from "./pages/singleNote";
 
 function App() {
   return (
@@ -15,9 +16,10 @@ function App() {
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/notes" element={<Notes />} />
+        <Route path="/notes/:id" element={<SingleNote />} />
         <Route path="/calendar" element={<Calendar />} />
         <Route path="/login" element={<Login />} />
-        <Route path='/register' element={<Register/>} />
+        <Route path="/register" element={<Register />} />
         <Route path="/" element={<Landing />} />
       </Routes>
       <Footer />
