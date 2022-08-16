@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
+import { IconPlus } from "../../assets/icons";
 import MainScreen from "../../components/mainScreen";
 import NoteCard from "../../components/noteCard";
+import { motion } from "framer-motion";
+import { Reorder } from "framer-motion";
 
 const info = [
   {
@@ -31,22 +34,37 @@ const info = [
 ];
 
 const Notes = () => {
+  const [items, setItems] = useState(info);
   return (
-    <div>
+    <motion.div
+      initial={{ x: -100 }}
+      animate={{ x: 0 }}
+      exit={{ x: 100 }}
+      transition={{ duration: 0.2 }}>
       <MainScreen title="Welcome to notes">
         <div>
-          <button className="bg-blue-500 hover:scale-105 ease-in-out text-white font-semibold  py-2 px-4 rounded-md">
-            Create Note
-          </button>
+          <motion.button
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 1.1 }}
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold  py-2 px-4 rounded-md">
+            <IconPlus />
+          </motion.button>
         </div>
-        <div>
-          {info.map((item) => (
-            <NoteCard key={item.id} title={item.title} content={item.content} id={item.id} />
+        <Reorder.Group
+          axis="y"
+          values={items}
+          initial={{ x: -100 }}
+          animate={{ x: 0 }}
+          transition={{ type: "spring", bounce: 0.3, duration: 1, damping: 8 }}
+          onReorder={setItems}>
+          {items.map((item) => (
+            <Reorder.Item key={item.id} value={item}>
+              <NoteCard key={item.id} title={item.title} content={item.content} id={item.id} />
+            </Reorder.Item>
           ))}
-        </div>
-        
+        </Reorder.Group>
       </MainScreen>
-    </div>
+    </motion.div>
   );
 };
 
