@@ -15,23 +15,23 @@ function Header() {
     },
   ];
   const navStyle = ({ isActive }) => {
-    return isActive ? "p-3 bg-blue-700 cursor-pointer" : "p-3 hover:bg-blue-700 cursor-pointer";
+    return isActive ? "p-3 bg-blue-600 text-white cursor-pointer rounded-xl " : "p-3 hover:bg-blue-600  cursor-pointer rounded-2xl  ";
   };
   return (
-    <div className="sticky top-0 z-50 md:px-5 lg:px-14 xl:px-20  bg-blue-900 flex justify-between w-full h-14 items-center">
-      <div className="text-white text-3xl p-3 cursor-pointer" onClick={() => navigate("/")}>
+    <div className="sticky top-0 z-50 flex items-center justify-between w-full bg-slate-200 md:px-5 lg:px-14 xl:px-20 h-14 ">
+      <div className="p-3 text-3xl text-black cursor-pointer sm:text-2xl md:text-3xl lg:text-4xl" onClick={() => navigate("/")}>
         <h1>My&nbsp;Diary</h1>
       </div>
 
-      <div className="flex justify-between text-white text-xl items-center relative gap-2">
+      <div className="relative flex items-center justify-between gap-2 text-xl text-black">
         <form className="flex gap-1 ">
           <input
-            className="flex text-sm p-2 border-none outline-none rounded-md text-gray-700"
+            className="flex w-0 p-2 text-sm border-gray-400 ext-gray-700 outline rounded-xl sm:w-10 md:w-50 lg:w-full "
             type="text"
             placeholder="Search"
           />
           <button className="hidden " type="submit">
-            Search
+            Search j
           </button>
         </form>
         <NavLink to="/home" className={navStyle}>
