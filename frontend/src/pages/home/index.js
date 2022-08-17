@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import MainScreen from "../../components/mainScreen";
 
 const Home = () => {
   return (
@@ -8,7 +9,7 @@ const Home = () => {
       animate={{ x: 1 }}
       exit={{ x: 100 }}
       transition={{ duration: 0.2 }}>
-      Home
+      <MainScreen title="Welcome to Home">vwyuefvsdkfj</MainScreen>
     </motion.div>
   );
 };

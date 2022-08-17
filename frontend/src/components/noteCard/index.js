@@ -21,7 +21,7 @@ const NoteCard = ({ title, content, id }) => {
         hidden: { opacity: 0, scale: 0 },
       }}>
       <div className="bg-gray-200 p-3  flex justify-between rounded-t-sm">
-        <div className=" font-medium text w-full " onClick={() => setShow(!show)}>
+        <div className="  text-sm font-medium sm:text-md w-full " onClick={() => setShow(!show)}>
           {title}
         </div>
         <div className="flex ">
