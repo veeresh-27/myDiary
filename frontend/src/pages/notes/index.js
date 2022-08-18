@@ -21,12 +21,12 @@ const Notes = () => {
       animate={{ x: 0 }}
       exit={{ x: 100 }}
       transition={{ duration: 0.2 }}>
-      <MainScreen title="Welcome to notes">
+      <MainScreen title="Welcome to Notes">
         <div>
           <motion.button
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 1.1 }}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold  py-2 px-4 rounded-md">
+            className="px-4 py-2 font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-600">
             <IconPlus />
           </motion.button>
         </div>

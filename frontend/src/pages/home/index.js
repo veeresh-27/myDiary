@@ -9,7 +9,7 @@ const Home = () => {
       animate={{ x: 1 }}
       exit={{ x: 100 }}
       transition={{ duration: 0.2 }}>
-      <MainScreen title="Welcome to Home">vwyuefvsdkfj</MainScreen>
+      <MainScreen title="Welcome to Home"></MainScreen>
     </motion.div>
   );
 };

@@ -19,8 +19,8 @@ const variants = {
 
 const MainScreen = ({ title, children }) => {
   return (
-    <div className="px-3 py-5 md:px-5 lg:px-14 xl:px-20 flex flex-col w-full gap-3 min-h-screen">
-      <div className="font-light text-3xl sm:text-4xl md:text-5xl lg:text-6xl">{title}</div>
+    <div className="flex flex-col w-full min-h-screen gap-3 px-3 py-5 md:px-5 lg:px-14 xl:px-20">
+      <div className="text-lg font-normal sm:text-3xl md:text-4xl lg:text-5xl">{title}</div>
       <hr className="h-0.5 bg-gray-200 mb-3" />
       <AnimatePresence exitBeforeEnter className="flex flex-col gap-3">
         <motion.div initial={{ opacity: 0 }} animate="enter" variants={variants} exit="exit">

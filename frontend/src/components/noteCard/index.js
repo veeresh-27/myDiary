@@ -13,24 +13,24 @@ const NoteCard = ({ title, content, id }) => {
 
   return (
     <motion.div
-      className="flex flex-col border border-gray-300 rounded mt-1"
+      className="flex flex-col mt-2 border-gray-300 shadow-md hover:shadow-sm"
       initial="hidden"
       whileInView={"visible"}
       variants={{
         visible: { opacity: 1, scale: 1 },
         hidden: { opacity: 0, scale: 0 },
       }}>
-      <div className="bg-gray-200 p-3  flex justify-between rounded-t-sm">
-        <div className="  text-sm font-medium sm:text-md w-full " onClick={() => setShow(!show)}>
+      <div className="flex justify-between p-3 bg-gray-200 rounded-lg cursor-pointer ">
+        <div className="w-full text-sm font-medium sm:text-md" onClick={() => setShow(!show)}>
           {title}
         </div>
         <div className="flex ">
           <div
-            className="flex cursor-pointer  text-gray-500"
+            className="flex cursor-pointer text-grey-500 "
             onClick={() => navigate(`/notes/${id}`)}>
             <IconEdit />
           </div>
-          <div className="flex cursor-pointer text-gray-500" onClick={handleDelete}>
+          <div className="flex cursor-pointer " onClick={handleDelete}>
             {" "}
             <IconTrash />
           </div>
@@ -38,10 +38,10 @@ const NoteCard = ({ title, content, id }) => {
       </div>
       <Transition
         show={show}
-        // className="transition-all ease-in-out duration-100"
+        // className="transition-all duration-100 ease-in-out"
       >
         <motion.div
-          className="p-3 flex flex-col gap-1  ease-in-out duration-100"
+          className="flex flex-col gap-1 p-4 duration-100 ease-in-out rounded-sm bg-slate-100"
           initial="hidden"
           whileInView={"visible"}
           variants={{
@@ -49,7 +49,7 @@ const NoteCard = ({ title, content, id }) => {
             hidden: { opacity: 0, scale: 0 },
           }}>
           <div className="text-lg font-regular">{content}</div>
-          <div className="text-gray-600 text-sm font-light">--Created on -- date </div>
+          <div className="text-sm font-light text-gray-600">--Created on -- date </div>
         </motion.div>
       </Transition>
     </motion.div>
@@ -82,9 +82,9 @@ const NoteCard = ({ title, content, id }) => {
     },
   ];
   return (
-    <div className="flex flex-col border border-gray-300 rounded mt-1 ">
-      <div className="bg-gray-200 p-3 border-b border-gray-300 flex justify-between">
-        <div className=" font-medium text w-full" onClick={() => setShow(!show)}>
+    <div className="flex flex-col mt-1 border border-gray-300 rounded ">
+      <div className="flex justify-between p-3 bg-gray-200 border-b border-gray-300">
+        <div className="w-full font-medium text" onClick={() => setShow(!show)}>
           {title}
         </div>
         <div>
@@ -99,9 +99,9 @@ const NoteCard = ({ title, content, id }) => {
         leave="transition ease-in-out duration-75"
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95">
-        <div className="p-3 flex flex-col gap-1 ease-in-out duration-500">
+        <div className="flex flex-col gap-1 p-3 duration-500 ease-in-out">
           <div className="text-lg font-regular">{content}</div>
-          <div className="text-gray-600 text-sm font-light">--Created on -- </div>
+          <div className="text-sm font-light text-gray-600">--Created on -- </div>
         </div>
       </Transition>
     </div>
