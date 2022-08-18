@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Links from "../links";
+import Modal from "../model";
 
 function Header() {
   const navigate = useNavigate();
