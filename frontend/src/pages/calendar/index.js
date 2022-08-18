@@ -1,7 +1,8 @@
 import React from "react";
+import MainScreen from "../../components/mainScreen";
 
 const Calendar = () => {
-  return <div className="p-4 text-3xl font-normal sm:text-4xl md:text-5xl lg:text-6 ">Welcome to Calendar</div>;
+  return <MainScreen title="Welcome to Calendar"></MainScreen>;
 };
 
 export default Calendar;

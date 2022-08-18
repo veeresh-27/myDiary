@@ -19,7 +19,7 @@ const variants = {
 
 const MainScreen = ({ title, children }) => {
   return (
-    <div className="flex flex-col w-full min-h-screen gap-3 px-3 py-5 md:px-5 lg:px-14 xl:px-20">
+    <div className="flex flex-col w-full bg-background min-h-screen gap-3 px-3 py-5 md:px-5 lg:px-14 xl:px-20">
       <div className="text-lg font-normal sm:text-3xl md:text-4xl lg:text-5xl">{title}</div>
       <hr className="h-0.5 bg-gray-200 mb-3" />
       <AnimatePresence exitBeforeEnter className="flex flex-col gap-3">

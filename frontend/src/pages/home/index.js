@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import MainScreen from "../../components/mainScreen";
+import { IconDelete } from "../../assets/icons";
 
 const Home = () => {
   return (
@@ -9,7 +10,9 @@ const Home = () => {
       animate={{ x: 1 }}
       exit={{ x: 100 }}
       transition={{ duration: 0.2 }}>
-      <MainScreen title="Welcome to Home"></MainScreen>
+      <MainScreen title="Welcome to Home">
+        <IconDelete/>
+      </MainScreen>
     </motion.div>
   );
 };
