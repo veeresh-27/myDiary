@@ -13,7 +13,7 @@ const NoteCard = ({ title, content, id }) => {
 
   return (
     <motion.div
-      className="flex flex-col mt-2 border-gray-300 shadow-md hover:shadow-sm"
+      className="flex flex-col mt-2  shadow-md hover:shadow-sm rounded-lg"
       initial="hidden"
       whileInView={"visible"}
       variants={{

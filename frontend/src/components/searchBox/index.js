@@ -1,48 +1,35 @@
 import React, { useState } from "react";
 import { IconSearch } from "../../assets/icons";
-import Dropdown from "../dropdown";
-
+import { motion, AnimatePresence } from "framer-motion";
 const SearchBox = () => {
   const [showSearch, setShowSearch] = useState(false);
-  const options = [
-    {
-      name: (
-        <form className="flex gap-1">
-          <input
-            className="flex w-0 p-2 text-sm border-gray-400 ext-gray-700 outline-none rounded-xl sm:w-10 md:w-50 lg:w-full"
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setShowSearch(!showSearch);
+  };
+
+  return (
+    <div className="flex w-full items-baseline h-full rounded">
+      <form className="flex">
+        {showSearch && (
+          <motion.input
+            initial="hidden"
+            whileInView={"visible"}
+            variants={{
+              visible: { opacity: 1, scale: 1, x: 0 },
+              hidden: { opacity: 0, scale: 0, x: -100 },
+            }}
+            className="flex w-min bg-gray-100 p-2 text-sm  outline-none"
             type="text"
             placeholder="Search"
           />
-          <button className="" type="submit">
-            <IconSearch />
-          </button>
-        </form>
-      ),
-    },
-  ];
-  return (
-    <div className="flex ">
-      {/* TODO <form className="flex gap-1">
-        <input
-          className="flex w-0 p-2 text-sm border-gray-400 ext-gray-700 outline-none rounded-xl sm:w-10 md:w-50 lg:w-full"
-          type="text"
-          placeholder="Search"
-        />
-        <button className="" type="submit">
+        )}
+        <button
+          className="text-gray-700  bg-gray-100 hover:scale-110 hover:text-primary  pl-2 py-2"
+          onClick={handleSearch}>
           <IconSearch />
         </button>
-      </form> */}
-      <div className="text-gray-700  hover:scale-110">
-        <Dropdown
-          title={
-            <div className="font-bold hover:text-primary">
-              <IconSearch />
-            </div>
-          }
-          downIcon={false}
-          options={options}
-        />
-      </div>
+      </form>
     </div>
   );
 };
